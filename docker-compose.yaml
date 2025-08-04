@@ -4,7 +4,7 @@ services:
     image: ghcr.io/datalens-tech/datalens-postgres:16
     pull_policy: ${IMAGE_PULL_POLICY:-always}
     healthcheck:
-      test: ["CMD", "pg_isready", "-d", "${POSTGRES_DB_US:-pg-us-db}", "-U", "${POSTGRES_USER:-pg-user}"]
+      test: ["CMD", "pg_isready", "-d", "${POSTGRES_DB_US:-pg-us-db}", "-U", "${POSTGRES_USER:-pg-user}", "-p", "${POSTGRES_PORT:-5432}"]
       interval: 10s
       retries: 6
       timeout: 5s
